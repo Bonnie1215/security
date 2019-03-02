@@ -1,0 +1,55 @@
+
+4-1 简介.mp4
+4-2 SpringSecurity基本原理.mp4
+    拦截器链
+
+4-3 自定义用户认证逻辑.mp4
+    UserServiceDetails接口
+4-4 个性化用户认证流程（一）.mp4
+    自定义登录成功/失败页面返回JSON或者html(SimpleUrlAuthenticationFailureHandler、
+        SavedRequestAwareAuthenticationSuccessHandler)
+4-5 个性化用户认证流程（二）.mp4
+    自定义密码加密(PassEncoder)
+4-6 认证流程源码级详解.mp4
+
+4-7 图片验证码.mp4
+4-8 图片验证码重构.mp4
+    请求级配置---覆盖---->应用级配置demo---覆盖---->默认配置core
+4-9 添加记住我功能.mp4
+    remember-me，springsecurity底层已经实现，只需要简单的配置
+4-10 短信验证码接口开发.mp4
+    生成短信验证码
+4-11 短信登录开发.mp4
+    自定义一套短信认证流程，模仿UsernamePasswordAuthenticationFilter表单登录一套即可
+4-12 短信登录配置及重构.mp4
+    配置短信验证码校验(模仿图片验证码校验流程)
+    重构图片验证码、短信验证码重复的代码模块
+4-13 小结.mp4
+5-1 OAuth协议简介.mp4
+5-2 SpringSocial简介.mp4
+5-3 开发QQ登录（上）.mp4
+5-4 开发QQ登录（中）.mp4
+5-5 开发QQ登录（下）.mp4
+5-6 处理注册逻辑.mp4
+5-7 开发微信登录.mp4
+5-8 绑定和解绑处理.mp4
+5-9 单机Session管理.mp4
+5-10 集群Session管理.mp4
+5-11 退出登录.mp4
+6-1 SpringSecurityOAuth简介.mp4
+6-2 实现标准的OAuth服务提供商.mp4
+6-3 SpringSecurityOAuth核心源码解析.mp4
+6-4 重构用户名密码登录.mp4
+6-5 重构短信登录.mp4
+6-6 重构社交登录.mp4
+6-7 重构注册逻辑.mp4
+6-8 令牌配置.mp4
+6-9 使用JWT替换默认令牌.mp4
+6-10 基于JWT实现SSO单点登录1.mp4
+6-11 基于JWT实现SSO单点登录2.mp4
+7-1 SpringSecurity授权简介.mp4
+7-2 SpringSecurity源码解析.mp4
+7-3 权限表达式.mp4
+7-4 基于数据库Rbac数据模型控制权限.mp4
+8-1 课程总结.mp4
+源码.zip

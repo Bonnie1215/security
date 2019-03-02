@@ -1,0 +1,83 @@
+1、TODO 自定义校验逻辑后续补上
+
+
+统一拦截：
+1、过滤器(Filter)
+    mvc框架提供的
+    优点：能拿到http请求和响应的信息
+    缺点：拿不到对应请求的控制中对应的方法
+ (1)、 @Component // 拦截所有请求，拦截器生效
+       public class MyFilter implements Filter {
+       }
+ (2)、
+        public class MyFilter implements Filter {
+        }
+        新建一个配置类
+         @Bean
+        public FilterRegistrationBean filterRegistrationBean() {
+            // 创建过滤器注册对象
+            FilterRegistrationBean filterBean = new FilterRegistrationBean();
+            // 创建自定义过滤器
+            MyFilter myFilter = new MyFilter();
+            // 将自定义的过滤器放到项目中
+            filterBean.setFilter(myFilter);
+            List<String> urlList = new ArrayList<>();
+            urlList.add("/*");
+            // 设置过滤器拦截的请求URL
+            filterBean.setUrlPatterns(urlList);
+            return filterBean;
+        }
+
+2、拦截器(Interceptor)
+    spring框架本身提供的
+    优点：即可以拿到原始http请求和响应也能拿到真正处理这个请求的类和方法的信息
+    缺点：在执行preHandle方法的时候没法拿到请求参数的值
+    @Component
+    public class MyInterceptor implements HandlerInterceptor{}
+    并且加上以下配置才能生效
+    @Configuration
+    public class InterceptorConfig extends WebMvcConfigurerAdapter{
+        @Autowired
+        private MyInterceptor myInterceptor;
+        /**
+         * 拦截器的注册器
+         * @param registry
+         */
+        @Override
+        public void addInterceptors(InterceptorRegistry registry) {
+            // 注册拦截器
+            registry.addInterceptor(myInterceptor)
+                    // 指定的url被拦截器拦截
+                    .addPathPatterns("/*");
+        }
+    }
+
+
+3、切片(Aspect)
+    优点：即可以拿到方法调用传递过来的值，也可以拿到方法请求的返回结果
+    缺点：拿不到原始http请求和响应的对象
+    @Aspect
+    @Component
+    public class MyAspect {
+        @Around("execution(* com.huyanqiu.contrioller.UserController.*(..))")
+        public Object handleControllerMethod(ProceedingJoinPoint pjp) throws Throwable{
+            System.out.println("MyAspect before......");
+            Object[] args = pjp.getArgs();
+            for (Object arg : args) {
+                System.out.println(arg);
+            }
+            long startTime = System.currentTimeMillis();
+            // 调用控制器中方法返回的结果
+            Object result = pjp.proceed();
+            long endTime = System.currentTimeMillis();
+            System.out.println("MyAspect话费时间："+(endTime-startTime));
+            return result;
+        }
+
+    }
+
+
+
+TODO 文件的上传和下载(3-9)
+TODO 异步处理rest服务(3-10)
+

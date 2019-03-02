@@ -1,0 +1,30 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.huyanqiu.core.properties.SecurityProperties",
+      "name": "my.security",
+      "type": "com.huyanqiu.core.properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.huyanqiu.core.properties.SecurityProperties",
+      "name": "my.security.browser",
+      "description": "web端相关的系统配置，读取my.security.browser的配置项",
+      "type": "com.huyanqiu.core.properties.BrowserProperties"
+    },
+    {
+      "sourceType": "com.huyanqiu.core.properties.SecurityProperties",
+      "name": "my.security.code",
+      "description": "web端相关的系统配置，读取my.security.code的配置项",
+      "type": "com.huyanqiu.core.properties.ValidateCodeProperties"
+    },
+    {
+      "sourceType": "com.huyanqiu.core.properties.SecurityProperties",
+      "name": "my.security.social",
+      "description": "social相关的系统配置，读取my.security.social的配置项",
+      "type": "com.huyanqiu.core.properties.SocialProperties"
+    }
+  ]
+}
